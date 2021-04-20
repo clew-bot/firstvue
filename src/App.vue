@@ -1,6 +1,7 @@
 <template>
 <div class="container">
  <Header title="Task Tracker"/>
+ <Tasks :tasks="tasks"/>
 </div>
 
 </template>
@@ -8,14 +9,45 @@
 <script>
 
 import Header from "./components/Header"
+import Tasks from "./components/Tasks"
 export default {
   name: 'App',
   // components
   components: {
     Header,
-    
-   
-  }
+    Tasks,
+  },
+  data() {
+    return {
+      tasks: [],
+    }
+},
+created() {
+  this.tasks = [{
+    id: 1,
+    text: "Go to Interview",
+    day: "April 20th at 2:00",
+    reminder: true,
+  },
+  {
+    id: 2,
+    text: "Go to Dog Show",
+    day: "April 23th at 4:00",
+    reminder: true,
+  },
+  {
+    id: 3,
+    text: "Go to Work",
+    day: "April 27th at 9:00",
+    reminder: false,
+  },
+  {
+    id: 4,
+    text: "Go to Disneyland",
+    day: "April 22th at 7:00",
+    reminder: true,
+  },
+  ]}
 }
 </script>
 
